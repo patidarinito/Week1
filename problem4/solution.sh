@@ -11,7 +11,7 @@ while read line; do
     
     # Do whatever you need to do with the username and IP here
 
-    ssh $username@$ip
+    ssh $username@$ip << EOF
 
     # check if out public key exist in ~/.ssh/authorised_keys
 
@@ -22,5 +22,5 @@ while read line; do
        echo "Public key added successfully"	
 
 # disconnect using exit
-exit
+EOF
 done < "$filename"
